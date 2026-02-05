@@ -1,0 +1,126 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  align-items: center;
+
+  select {
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    outline: none;
+    min-width: 150px;
+    cursor: pointer;
+
+    &:focus {
+      border-color: #4ecaff;
+    }
+  }
+
+  button {
+    padding: 10px 32px;
+    background-color: #4ecaff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: darken(#4ecaff, 10%);
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.translationArea {
+  display: flex;
+  gap: 24px;
+  min-height: 400px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.inputBox, .outputBox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+
+  header {
+    padding: 12px 16px;
+    background: #f9f9f9;
+    border-bottom: 1px solid #eee;
+    color: #666;
+    font-weight: 500;
+  }
+}
+
+.inputBox textarea {
+  flex: 1;
+  width: 100%;
+  padding: 16px;
+  border: none;
+  resize: none;
+  font-size: 16px;
+  line-height: 1.6;
+  outline: none;
+  font-family: inherit;
+  background: transparent;
+}
+
+.outputBox {
+  .content {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    font-size: 16px;
+    line-height: 1.6;
+    font-family: inherit; /* 确保字体一致 */
+    
+    // 移除 ReactMarkdown 默认的段落边距，使其与 textarea 纯文本对齐
+    p { margin: 0 0 1em; }
+    p:last-child { margin-bottom: 0; }
+    
+    h1, h2, h3 { margin: 1em 0 0.5em; font-size: 1.1em; }
+    code { background: #f0f0f0; padding: 2px 4px; border-radius: 4px; }
+  }
+
+  &.loading .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+  }
+}
+
+.error {
+  text-align: center;
+  color: #ff4d4f;
+  margin-top: 16px;
+}
