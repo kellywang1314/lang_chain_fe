@@ -16,6 +16,7 @@ const ImageReadPage = () => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
 
+
       // 简单验证
       if (!file.type.startsWith('image/')) {
         setError('请上传图片文件 (JPG, PNG, GIF 等)');
@@ -27,6 +28,7 @@ const ImageReadPage = () => {
       }
 
       setSelectedFile(file);
+      // 为本地的文件对象（如用户选中的图片）创建一个 临时的、浏览器可访问的 URL 字符串
       setPreviewUrl(URL.createObjectURL(file));
       setError('');
       setOutput(''); // 清空上次结果
