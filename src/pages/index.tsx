@@ -34,6 +34,14 @@ const agents = [
     icon: '📷',
     theme: 'image',
   },
+  {
+    id: 'rag',
+    title: 'RAG 知识库问答',
+    description: '上传文档或文本构建私有知识库，AI 将基于你的知识库内容进行精准回答。',
+    path: '/rag',
+    icon: '📚',
+    theme: 'rag',
+  },
 ];
 
 const IndexPage = () => {
